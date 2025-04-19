@@ -5,7 +5,6 @@
         <h2>Add New MikroTik Device</h2>
         <form method="POST" action="{{ route('devices.store') }}">
             @csrf
-
             <div class="mb-3">
                 <label>Device Name</label>
                 <input type="text" name="name" class="form-control" required>

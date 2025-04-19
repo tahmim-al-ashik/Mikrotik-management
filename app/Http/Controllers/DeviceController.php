@@ -81,4 +81,33 @@ class DeviceController extends Controller
             ];
         }
     }
+
+    public function getInterfaces(Device $device)
+    {
+        try {
+            $config = (new \RouterOS\Config())
+                ->set('host', $device->ip_address)
+                ->set('user', $device->username)
+                ->set('pass', $device->password)
+                ->set('port', $device->port)
+                ->set('ssl', $device->ssl)
+                ->set('legacy', $device->legacy_login);
+
+            $client = new \RouterOS\Client($config);
+
+            $query = new \RouterOS\Query('/interface/print');
+            $interfaces = $client->query($query)->read();
+
+            return response()->json([
+                'status' => 'success',
+                'interfaces' => $interfaces,
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ], 500);
+        }
+    }
 }

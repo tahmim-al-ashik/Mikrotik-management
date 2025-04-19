@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISP Management</title>
     <!-- Add Bootstrap CSS for styling -->
+
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{{--    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>--}}
 </head>
 <body>
 <!-- Navbar -->

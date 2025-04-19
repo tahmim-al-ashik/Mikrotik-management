@@ -25,4 +25,8 @@ Route::middleware(['auth'])->group(function () {
 
     // OLT Devices
     Route::resource('olts', OltController::class)->only(['index', 'create', 'store']);
+
+    Route::get('/devices/{device}/interfaces', [DeviceController::class, 'getInterfaces'])->name('devices.interfaces');
+
+
 });
